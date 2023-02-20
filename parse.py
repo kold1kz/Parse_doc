@@ -33,4 +33,7 @@ def forward_table(mail):
             index+=1
 
 
-forward_table(mail)
+def update(mail):
+    deleate_table()
+    forward_table(mail)
+    
