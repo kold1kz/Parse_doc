@@ -8,7 +8,7 @@
 
 ## Настройка В корне проекта создайте виртуальное окружение и активируйте его:  
 * python -m venv “venv”  
-* .\venv\Scripts\activate (для Linux: source ./venv/bin/activate)  
+* ./venv/Scripts/activate (для Linux: source ./venv/bin/activate)  
 
 > Все последующие действия производить внутри виртуального окружения Установите все необходимые зависимости для работы  
 
