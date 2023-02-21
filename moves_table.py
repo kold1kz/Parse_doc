@@ -1,11 +1,13 @@
+"""moves with tables"""
 from create_doc import  service
 
 
-docId='1C24LgWSvLzt3UEofn8jK6NTSgUIgpOW-lpgV_p-8f-U'
+DOC_ID='1C24LgWSvLzt3UEofn8jK6NTSgUIgpOW-lpgV_p-8f-U'
 
 
 def deleate_table():
-    document = service.documents().get(documentId=docId).execute()
+    """deleate_teble 1"""
+    document = service.documents().get(documentId=DOC_ID).execute()
     table = document['body']['content'][2]
 
     requests = [{
@@ -18,9 +20,10 @@ def deleate_table():
         },
     }
     ]
-    result = service.documents().batchUpdate(documentId=docId, body={'requests': requests}).execute()
+    service.documents().batchUpdate(documentId=DOC_ID, body={'requests': requests}).execute()
 
 def create_table(rows,columns):
+    """create tables"""
     requests = [{
       'insertTable': {
           'rows': rows,
@@ -31,18 +34,19 @@ def create_table(rows,columns):
       },
   }
   ]
-    result = service.documents().batchUpdate(documentId=docId, body={'requests': requests}).execute()
+    service.documents().batchUpdate(documentId=DOC_ID, body={'requests': requests}).execute()
 
 def insert_txt(txt,rows,colu):
-    document = service.documents().get(documentId=docId).execute()
+    """input text"""
+    document = service.documents().get(documentId=DOC_ID).execute()
     table = document['body']['content'][2]
-    tableIndex=table['table']['tableRows'][rows]['tableCells'][colu]['content'][0]['startIndex']
+    tableindex=table['table']['tableRows'][rows]['tableCells'][colu]['content'][0]['startIndex']
     requests = [{
         'insertText': {
             'location': {
-            'index': tableIndex
+            'index': tableindex
             },
             'text': txt
         }
     }]
-    result=service.documents().batchUpdate(documentId=docId, body={'requests': requests}).execute()
+    service.documents().batchUpdate(documentId=DOC_ID, body={'requests': requests}).execute()

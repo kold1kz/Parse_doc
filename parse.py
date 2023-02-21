@@ -1,10 +1,14 @@
+"""parse from html to doc"""
 from bs4 import BeautifulSoup
-from moves_table import *
 import requests
+from moves_table import *
 
-mail = 'https://confluence.hflabs.ru/pages/viewpage.action?pageId=1181220999#space-menu-link-content'
+
+MAIL = 
+'https://confluence.hflabs.ru/pages/viewpage.action?pageId=1181220999#space-menu-link-content'
 
 def forward_table(mail):
+    """take from html and forward to doc"""
     page = requests.get(mail)
 
     soup = BeautifulSoup(page.text, 'html.parser')
@@ -34,6 +38,6 @@ def forward_table(mail):
 
 
 def update(mail):
+    """update"""
     deleate_table()
     forward_table(mail)
-    
