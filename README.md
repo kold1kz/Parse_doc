@@ -4,7 +4,7 @@
 
 Склонируйте репозиторий:  
 
-* git clone https://github.com/Parse_doc  
+* git clone https://github.com/kold1kz/Parse_doc  
 
 ## Настройка В корне проекта создайте виртуальное окружение и активируйте его:  
 * python -m venv “venv”  
